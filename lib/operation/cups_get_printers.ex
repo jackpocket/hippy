@@ -6,8 +6,8 @@ defmodule Hippy.Operation.CupsGetPrinters do
   @def_charset "utf-8"
   @def_lang "en"
 
-#  @printer_and_class_mask 0x00000002 ||| 0x00000001
-  @printer_and_class_mask  0x00000001
+  #  @printer_and_class_mask 0x00000002 ||| 0x00000001
+  @printer_and_class_mask 0x00000001
 
   @enforce_keys [:printer_uri]
 

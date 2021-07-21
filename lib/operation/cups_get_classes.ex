@@ -21,7 +21,7 @@ defmodule Hippy.Operation.CupsGetClasses do
       charset: Keyword.get(opts, :charset, @def_charset),
       language: Keyword.get(opts, :language, @def_lang),
       requested_attributes: Keyword.get(opts, :requested_attributes, @requested_attributes),
-#    printer_info: Keyword.get(opts, :printer_info, "")
+      #    printer_info: Keyword.get(opts, :printer_info, "")
       printer_info: "powerball"
     }
   end

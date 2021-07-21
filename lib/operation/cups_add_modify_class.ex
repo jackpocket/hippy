@@ -38,10 +38,10 @@ defimpl Hippy.Operation, for: Hippy.Operation.CupsAddModifyClass do
         {:natural_language, "attributes-natural-language", op.language},
         {:uri, "printer-uri", target}
       ],
-#      printer_attributes: [
-#        {:boolean, "printer-is-accepting-jobs", op.accepting_jobs},
-#        {{:set1, :uri}, "member-uris", op.member_uris}
-#      ],
+      #      printer_attributes: [
+      #        {:boolean, "printer-is-accepting-jobs", op.accepting_jobs},
+      #        {{:set1, :uri}, "member-uris", op.member_uris}
+      #      ],
       data: <<>>
     }
   end

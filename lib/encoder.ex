@@ -50,7 +50,7 @@ defmodule Hippy.Encoder do
               :natural_language,
               :keyword,
               :name_without_language,
-  :text_without_language,
+              :text_without_language,
               :mime_media_type
             ] do
     <<value_tag(tag)::8-signed, byte_size(name)::16-signed, name::binary,
