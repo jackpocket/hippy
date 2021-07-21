@@ -32,8 +32,6 @@ defimpl Hippy.Operation, for: Hippy.Operation.PrintJob do
   def build_request(op) do
     target = String.replace(op.printer_uri, ~r/^http(s)?/, "ipp")
 
-    Hexate.encode(op.document) |> IO.puts()
-
     %Hippy.Request{
       # Should request_id be a parameter to build_request?
       request_id: System.unique_integer([:positive, :monotonic]),
