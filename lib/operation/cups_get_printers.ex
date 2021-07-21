@@ -3,8 +3,6 @@ defmodule Hippy.Operation.CupsGetPrinters do
   Represents a request to get printers for a printer on the IPP server.
   """
 
-  import Bitwise
-
   @def_charset "utf-8"
   @def_lang "en"
 
