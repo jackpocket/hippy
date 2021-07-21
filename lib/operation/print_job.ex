@@ -30,7 +30,6 @@ end
 
 defimpl Hippy.Operation, for: Hippy.Operation.PrintJob do
   def build_request(op) do
-    IO.inspect(op)
     target = String.replace(op.printer_uri, ~r/^http(s)?/, "ipp")
 
     Hexate.encode(op.document) |> IO.puts()
