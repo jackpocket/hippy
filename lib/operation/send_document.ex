@@ -44,8 +44,6 @@ defimpl Hippy.Operation, for: Hippy.Operation.SendDocument do
   def build_request(op) do
     target = String.replace(op.printer_uri, ~r/^http(s)?/, "ipp")
 
-    #    Hexate.encode(op.document) |> IO.puts()
-
     %Hippy.Request{
       request_id: System.unique_integer([:positive, :monotonic]),
       operation_id: Hippy.Protocol.Operation.cancel_job(),
