@@ -39,9 +39,9 @@ defmodule Hippy.MixProject do
   defp package do
     [
       files: ["lib", "mix.exs", "README.md", "LICENSE"],
-      maintainers: ["Jeff Smith"],
+      organization: "jackpocket",
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/mpichette/hippy"}
+      links: %{"GitHub" => "https://github.com/jackpocket/hippy"}
     ]
   end
 end
