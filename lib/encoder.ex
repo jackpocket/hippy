@@ -15,6 +15,20 @@ defmodule Hippy.Encoder do
       end
 
     bin =
+      unless Enum.empty?(req.subscription_attributes) do
+        <<bin::binary, DelimiterTag.subscription_attributes()::8-signed>>
+      else
+        bin
+      end
+
+    bin =
+      for attribute <- req.subscription_attributes, into: bin do
+        # TODO: Deal with invalid tag error in the middle of loop.
+        encode_attribute(attribute)
+      end
+
+
+    bin =
       unless Enum.empty?(req.job_attributes) do
         <<bin::binary, DelimiterTag.job_attributes()::8-signed>>
       else
