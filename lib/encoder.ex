@@ -27,7 +27,6 @@ defmodule Hippy.Encoder do
         encode_attribute(attribute)
       end
 
-
     bin =
       unless Enum.empty?(req.job_attributes) do
         <<bin::binary, DelimiterTag.job_attributes()::8-signed>>
