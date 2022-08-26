@@ -6,6 +6,7 @@ defmodule Hippy.Response do
             job_attributes: [],
             printer_attributes: [],
             unknown_attributes: [],
+            subscription_attributes: [],
             data: nil
 
   @behaviour Access

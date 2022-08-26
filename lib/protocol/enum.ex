@@ -89,7 +89,8 @@ defmodule Hippy.Protocol.Enum do
       "orientation-requested-supported" => Hippy.Protocol.Orientation,
       "orientation-requested-default" => Hippy.Protocol.Orientation,
       "landscape-orientation-requested-preferred" => Hippy.Protocol.Orientation,
-      "printer-wifi-state" => Hippy.Protocol.PrinterWifiState
+      "printer-wifi-state" => Hippy.Protocol.PrinterWifiState,
+      "notify-status-code" => Hippy.Protocol.StatusCode
     }
     |> Map.fetch(attribute)
   end

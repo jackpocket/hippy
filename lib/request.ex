@@ -5,5 +5,6 @@ defmodule Hippy.Request do
             operation_attributes: [],
             job_attributes: [],
             printer_attributes: [],
+            subscription_attributes: [],
             data: nil
 end
