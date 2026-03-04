@@ -59,8 +59,15 @@ defmodule Hippy.Server do
   end
 
   defp post(url, body) do
-    #    headers = ["Content-Type": "application/ipp", "Authorization": "Basic #####"]
-    headers = ["Content-Type": "application/ipp"]
-    HTTPoison.post(url, body, headers, ssl: [verify: :verify_none])
+    headers = [{"content-type", "application/ipp"}]
+
+    case Finch.build(:post, url, headers, body)
+         |> Finch.request(Hippy.Finch, receive_timeout: 30_000) do
+      {:ok, %{status: status, body: body}} ->
+        {:ok, %{body: body, status_code: status}}
+
+      {:error, reason} ->
+        {:error, %Hippy.Error{reason: reason}}
+    end
   end
 end
