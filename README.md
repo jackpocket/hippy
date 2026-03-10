@@ -130,7 +130,7 @@ This repository now has automated publishing in [.github/workflows/release.yml](
    git tag -a v0.4.2 -m "Release v0.4.2"
    git push origin v0.4.2
    ```
-4. The workflow runs tests, verifies tag/version match, publishes to Hex (`--organization jackpocket`), and creates a GitHub Release.
+4. The workflow runs tests, verifies tag/version match, publishes to Hex (`--organization draftkings`), and creates a GitHub Release.
 
 ## Copyright and License
 
