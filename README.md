@@ -124,11 +124,12 @@ This repository now has automated publishing in [.github/workflows/release.yml](
 ### Publish flow
 
 1. Ensure `HEX_API_KEY` is available to Actions (typically as an organization secret).
-2. Update `version` in `mix.exs` to the release version (for example `0.4.2`).
-3. Create and push a matching git tag with a `v` prefix:
+2. Update `version` in `mix.exs` to the release version.
+3. Create and push a matching git tag from the app version:
    ```bash
-   git tag -a v0.4.2 -m "Release v0.4.2"
-   git push origin v0.4.2
+   VERSION="$(mix run --no-compile -e 'IO.puts(Application.spec(:hippy, :vsn))' | tail -n 1)"
+   git tag -a "v${VERSION}" -m "Release v${VERSION}"
+   git push origin "v${VERSION}"
    ```
 4. The workflow runs tests, verifies tag/version match, publishes to Hex (`--organization draftkings`), and creates a GitHub Release.
 
