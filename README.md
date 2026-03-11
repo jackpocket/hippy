@@ -11,7 +11,7 @@ This is currently very alpha-stage software and will be evolving quickly.  Pleas
 
 ### Print a PDF document
 ```elixir
-doc = File.read!("tps_report.pdf") 
+doc = File.read!("tps_report.pdf")
 printer_uri = "http://localhost:631/printers/HP_Color_LaserJet"
 
 Hippy.Operation.PrintJob.new(printer_uri, doc, job_name: "TPS Report")
@@ -30,7 +30,7 @@ Hippy.Operation.PrintJob.new(printer_uri, doc, job_name: "TPS Report")
    ],
    operation_attributes: [
      [
-       {:charset, "attributes-charset", "utf-8"}, 
+       {:charset, "attributes-charset", "utf-8"},
        {:natural_language, "attributes-natural-language", "en"}
      ]
    ],
@@ -116,6 +116,21 @@ Hippy.AttributeGroup.to_map(response.job_attributes)
   "job-uri" => "ipp://localhost:631/jobs/47"
 }
 ```
+
+## Release Automation
+
+This repository now has automated publishing in [.github/workflows/release.yml](.github/workflows/release.yml).
+
+### Publish flow
+
+1. Ensure `HEX_API_KEY` is available to Actions (typically as an organization secret).
+2. Update `version` in `mix.exs` to the release version (for example `0.4.2`).
+3. Create and push a matching git tag with a `v` prefix:
+   ```bash
+   git tag -a v0.4.2 -m "Release v0.4.2"
+   git push origin v0.4.2
+   ```
+4. The workflow runs tests, verifies tag/version match, publishes to Hex (`--organization draftkings`), and creates a GitHub Release.
 
 ## Copyright and License
 
